@@ -68,10 +68,10 @@ server.put('/Projects/:id', (req, res) => {
 
 
 server.delete('/Projects/:id', (req, res) => {    
-    const { index } = req.params
-
-    users.splice(index, 1)
-    return res.json({ users})
+    const { id } = req.params
+    const project = Projects.find(p => p.id == id)
+    Projects.splice(project, 1)
+    return res.json({ project})
 })
 // server.get('/users/:id', (req, res) => {
 //     //const id = req.params.id
